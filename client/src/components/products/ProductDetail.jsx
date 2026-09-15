@@ -74,6 +74,7 @@ const ProductDetail = () => {
     const handleAddToCart = async () => {
 
         try {
+            if (!localStorage.getItem("token")) { alert("Please login first to add products to your cart."); navigate("/login"); return; }
 
             await addToCart(
                 product._id,
