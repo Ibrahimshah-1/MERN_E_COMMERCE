@@ -23,11 +23,10 @@ const ProductDetail = () => {
 
     const navigate = useNavigate();
 
-    const { addToCart } = useContext(AppContext);
+    const { addToCart ,url} = useContext(AppContext);
 
     const [product, setProduct] = useState(null);
 
-    const url = "http://localhost:3000/api";
 
 
     useEffect(() => {
@@ -65,7 +64,7 @@ const ProductDetail = () => {
 
         fetchProduct();
 
-    }, [id]);
+    }, [id , url]);
 
 
     // ==========================================

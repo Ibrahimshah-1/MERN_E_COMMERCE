@@ -18,7 +18,8 @@ const CheckOut = () => {
   const {
     cart,
     user,
-    userAddress
+    userAddress,
+    url
   } = useContext(AppContext);
 
   const navigate = useNavigate();
@@ -143,7 +144,7 @@ const CheckOut = () => {
       );
 
       const orderResponse = await axios.post(
-        "http://localhost:3000/api/order/create",
+        `${url}/order/create`,
         {
           userId: user._id,
 
@@ -207,7 +208,7 @@ const CheckOut = () => {
 
       const paymentResponse =
         await axios.post(
-          "http://localhost:3000/api/payment/create",
+          `${url}/payment/create`,
           {
             amount: price,
 

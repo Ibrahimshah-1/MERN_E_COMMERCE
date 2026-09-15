@@ -20,7 +20,7 @@ const PaymentSuccess = () => {
 
     const [searchParams] = useSearchParams();
 
-    const { ClearCart } = useContext(AppContext);
+    const { ClearCart ,url } = useContext(AppContext);
 
     const [status, setStatus] = useState("checking");
 
@@ -69,7 +69,7 @@ const PaymentSuccess = () => {
             try {
 
                 const response = await axios.get(
-                    `http://localhost:3000/api/payment/status/${tracker}`
+                    `${url}/payment/status/${tracker}`
                 );
 
 
