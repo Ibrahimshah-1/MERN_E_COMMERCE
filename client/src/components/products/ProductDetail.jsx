@@ -90,7 +90,7 @@ const ProductDetail = () => {
                 "Add to cart error:",
                 error
             );
-
+alert( error.response?.data?.message || "Unable to add product to cart." );
         }
 
     };
@@ -103,6 +103,9 @@ const ProductDetail = () => {
     const handleBuyNow = async () => {
 
         try {
+
+         if (!localStorage.getItem("token")) { alert( "Please login first to buy this product." ); navigate("/login"); 
+                return; }
 
             await addToCart(
                 product._id,
@@ -123,6 +126,7 @@ const ProductDetail = () => {
                 "Buy now error:",
                 error
             );
+            alert( error.response?.data?.message || "Unable to add product to cart." );
 
         }
 

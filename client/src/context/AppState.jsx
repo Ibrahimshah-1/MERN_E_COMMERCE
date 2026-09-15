@@ -486,6 +486,7 @@ const AppState = (props) => {
         error.response?.data ||
         error.message
       );
+      toast.error( error.response?.data?.message || "Unable to add product to cart.", { position: "top-right", autoClose: 2000, theme: "dark", transition: Bounce } );
 
     }
 
